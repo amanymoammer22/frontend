@@ -11,7 +11,6 @@ import toast from "react-hot-toast";
 import { addToCart } from "../../../store/cartStore";
 import { addToWishlist } from "../../../store/wishlistStore";
 
-
 export default function ProductAll() {
     const [products, setProducts] = useState([]);
     const [minPrice, setMin] = useState(0);

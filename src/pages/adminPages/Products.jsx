@@ -97,12 +97,10 @@ export default function Products() {
                               <div className="col-span-1"> {(page - 1) * 8 + (index + 1)}</div>
 
                               <div className="col-span-2 flex items-center gap-3">
-                                  <img
-                                      src={
-                                          p.imageCover.startsWith("./")
-                                              ? `${backendUrlApi}${p.imageCover}`
-                                              : `${backendUrlApi}/product/${p.imageCover}`
-                                      }
+                                  <img src={p.imageCover.startsWith("/uploads") ?
+                                      `${backendUrlApi}${p.imageCover}` :
+                                      `${backendUrlApi}/Product/${p.imageCover.replace("./Product/", "")}`}
+                                      
                                       alt="product"
                                       className="w-14 h-14 rounded-lg object-cover border"
                                   />
