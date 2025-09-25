@@ -99,7 +99,7 @@ export default function Products() {
 
                               <div className="col-span-2 flex items-center gap-3 truncate">
                                   <img
-                                      src={p.imageCover.startsWith("./") ? `${backendUrlApi}${p.imageCover}` : `${backendUrlApi}/product/${p.imageCover}`}
+                                      src={p.imageCover.startsWith("/uploads") ? `${backendUrlApi}${p.imageCover}` : `${backendUrlApi}/Product/${p.imageCover.replace("./Product/", "")}`}
                                       alt="product"
                                       className="w-14 h-14 rounded-lg object-cover border"
                                   />
