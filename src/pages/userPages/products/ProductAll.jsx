@@ -108,11 +108,7 @@ export default function ProductAll() {
                                            <div className="relative w-full aspect-square overflow-hidden rounded-xl">
                                                {/* Image */}
                                                <img
-                                                   src={
-                                                       p.imageCover.startsWith("/uploads")
-                                                           ? `${backendUrlApi}${p.imageCover}`
-                                                           : `${backendUrlApi}/uploads/product/${p.imageCover.replace("./Product/", "")}`
-                                                   }
+                                                   src={p.imageCover.startsWith("/uploads") ? `${backendUrlApi}${p.imageCover}` : `${backendUrlApi}/Product/${p.imageCover.replace("./Product/", "")}`}
                                                    alt={p.title}
                                                    className="w-full h-full object-cover select-none"
                                                    draggable="false"
