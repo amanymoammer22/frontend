@@ -108,7 +108,7 @@ export default function ProductAll() {
                                            <div className="relative w-full aspect-square overflow-hidden rounded-xl">
                                                {/* Image */}
                                                <img
-                                                   src={p.imageCover.startsWith("./") ? `${backendUrlApi}/${p.imageCover.replace("./", "")}` : `${backendUrlApi}/uploads/product/${p.imageCover}`}
+                                                   src={p.imageCover ? `${backendUrlApi}/product/${p.imageCover}` : `${backendUrlApi}/uploads/product/${p.imageCover}`}
                                                    //    src={p.imageCover.startsWith("./") ? `${backendUrlApi}${p.imageCover}` : `${backendUrlApi}/product/${p.imageCover}`}
                                                    alt={p.title}
                                                    className="w-full h-full object-cover select-none"
