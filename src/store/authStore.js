@@ -2,7 +2,9 @@ import { create } from "zustand";
 const AUTH_KEY = "auth";
 const savedAuth = JSON.parse(localStorage.getItem(AUTH_KEY)) || JSON.parse(sessionStorage.getItem(AUTH_KEY)) || null;
 // export const backendUrlApi = "http://localhost:5000/";
-export const backendUrlApi = "https://backend-production-fab0.up.railway.app/";
+// export const backendUrlApi = "https://backend-production-fab0.up.railway.app/";
+export const backendUrlApi = import.meta.env.VITE_BACKEND_URL;
+
 
 // const auth = JSON.parse(localStorage.getItem("auth")) || JSON.parse(sessionStorage.getItem("auth")) || null;
 
