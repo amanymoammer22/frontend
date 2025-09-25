@@ -108,7 +108,8 @@ export default function ProductAll() {
                                            <div className="relative w-full aspect-square overflow-hidden rounded-xl">
                                                {/* Image */}
                                                <img
-                                                   src={p.imageCover.startsWith("./") ? `${backendUrlApi}${p.imageCover}` : `${backendUrlApi}/product/${p.imageCover}`}
+                                                   src={p.imageCover.startsWith("./") ? `${backendUrlApi}/${p.imageCover.replace("./", "")}` : `${backendUrlApi}/uploads/product/${p.imageCover}`}
+                                                   //    src={p.imageCover.startsWith("./") ? `${backendUrlApi}${p.imageCover}` : `${backendUrlApi}/product/${p.imageCover}`}
                                                    alt={p.title}
                                                    className="w-full h-full object-cover select-none"
                                                    draggable="false"
@@ -169,15 +170,7 @@ export default function ProductAll() {
 
                    {/* Filter Card on the right */}
                    <aside className="flex gap-6 order-2 max-lg:order-1 py-5">
-                       <FilterDrawer
-                           minPrice={minPrice}
-                           maxPrice={maxPrice}
-                           setMin={setMin}
-                           setMax={setMax}
-                           onApply={handleApplyFilter}
-                           onClear={handleClearFilters}
-                           setProducts={setProducts}
-                       />
+                       <FilterDrawer minPrice={minPrice} maxPrice={maxPrice} setMin={setMin} setMax={setMax} onApply={handleApplyFilter} onClear={handleClearFilters} setProducts={setProducts} />
                    </aside>
                </div>
            </div>
