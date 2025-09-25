@@ -81,7 +81,13 @@ export default function Wishlist() {
                     <div key={item._id} className="grid grid-cols-6 gap-4 items-center py-6 border-b border-gray-300">
                         <div className="col-span-2 flex gap-4">
                             <div className="w-56 h-32 bg-gray-100 rounded-lg overflow-hidden">
-                                <img src={`${backendUrlApi}${item.imageCover}`} alt={item.pro_name} className="w-full h-full object-cover" />
+                                <img
+                                    src={
+                                        item.imageCover.startsWith("/uploads") ? `${backendUrlApi}${item.imageCover}` : `${backendUrlApi}/uploads/product/${item.imageCover.replace("./Product/", "")}`
+                                    }
+                                    // src={`${backendUrlApi}${item.imageCover}`} alt={item.pro_name}
+                                    className="w-full h-full object-cover"
+                                />
                             </div>
                             <div>
                                 <h3 className="font-semibold">{item.title}</h3>
@@ -92,9 +98,7 @@ export default function Wishlist() {
                         <div className="text-center">${item.price}</div>
 
                         <div className="text-center">
-                            <button
-                                onClick={() => handleRemove(item._id)}
-                                className="p-2 text-red-500 hover:bg-red-100 rounded-lg">
+                            <button onClick={() => handleRemove(item._id)} className="p-2 text-red-500 hover:bg-red-100 rounded-lg">
                                 <FaTrashAlt size={18} />
                             </button>
                         </div>

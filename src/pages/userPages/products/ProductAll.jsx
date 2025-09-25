@@ -109,9 +109,9 @@ export default function ProductAll() {
                                                {/* Image */}
                                                <img
                                                    src={
-                                                       p.imageCover.startsWith("./")
-                                                           ? `${backendUrlApi}${p.imageCover.replace("./", "/")}` // الصور من JSON
-                                                           : `${backendUrlApi}${p.imageCover}` // الصور المرفوعة
+                                                       p.imageCover.startsWith("/uploads")
+                                                           ? `${backendUrlApi}${p.imageCover}`
+                                                           : `${backendUrlApi}/uploads/product/${p.imageCover.replace("./Product/", "")}`
                                                    }
                                                    alt={p.title}
                                                    className="w-full h-full object-cover select-none"

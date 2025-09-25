@@ -31,7 +31,7 @@ export default function ProductDetail({ product }) {
             <div className="flex flex-col items-center">
                 <div className="overflow-hidden rounded-2xl shadow-md">
                     <img
-                        src={product.imageCover.startsWith("./") ? `${backendUrlApi}${product.imageCover}` : `${backendUrlApi}/product/${product.imageCover}`}
+                        src={product.imageCover.startsWith("/uploads") ? `${backendUrlApi}${product.imageCover}` : `${backendUrlApi}/uploads/product/${product.imageCover.replace("./Product/", "")}`}
                         alt="Product"
                         className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                     />
@@ -82,10 +82,6 @@ export default function ProductDetail({ product }) {
                 {/* Description */}
                 <p className="w-full rounded-lg bg-[#f2f2eb] p-2 shadow-sm break-words whitespace-pre-wrap">{product.description}</p>
 
-                {/* <div>
-                    <h4 className="font-semibold mb-2">Size</h4>
-                </div> */}
-                {/* Quantity */}
                 <div>
                     <h4 className="font-semibold mb-2">Quantity</h4>
                     <div className="flex items-center gap-2">
