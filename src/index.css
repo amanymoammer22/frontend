@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+
+:root {
+    --bg-Color: #530400;
+    --bg-hover: #881F1A;
+    --bg-footer:#f0e3d3;
+    --bg-btn:#e4922c;
+    /* About us  */
+    --bgtext-coler:#97645b;
+    --bg-colorA:#f0e3d3;
+}
+
+@keyframes fade-in-scale {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in-scale {
+  animation: fade-in-scale 0.3s ease-out forwards;
+}
