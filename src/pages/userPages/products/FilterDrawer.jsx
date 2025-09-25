@@ -4,8 +4,7 @@ import { FaArrowDown, FaFilter, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { backendUrlApi } from "../../../store/authStore";
 
-export default function FilterDrawer({ minPrice, maxPrice, setMin, setMax, onApply, onClear, setProducts }) {
-
+export default function FilterDrawer({ minPrice, maxPrice, setMin, setMax, onApply, onClear, setProducts, categoryId }) {
     const [open, setOpen] = useState(false);
 
     return (
@@ -32,7 +31,7 @@ export default function FilterDrawer({ minPrice, maxPrice, setMin, setMax, onApp
                 </button>
 
                 <div className="mt-10">
-                    <SearchBar setProducts={setProducts} />
+                    <SearchBar setProducts={setProducts} categoryId={categoryId} />
                     <DropdownCollection />
                     <FilterContent
                         minPrice={minPrice}
@@ -57,7 +56,7 @@ export default function FilterDrawer({ minPrice, maxPrice, setMin, setMax, onApp
                 className="hidden lg:block bg-[#efefe8] rounded-2xl p-5  mx-auto
                    sticky top-24 h-max shadow-[0_6px_18px_rgba(0,0,0,.08)] w-[300px]">
                 <div className="my-2">
-                    <SearchBar setProducts={setProducts} />
+                    <SearchBar setProducts={setProducts} categoryId={categoryId} />
                 </div>
                 <div className="mb-8">
                     <DropdownCollection />
@@ -204,32 +203,36 @@ function DropdownCollection() {
 
 // search
 
-function SearchBar({ setProducts }) {
-  const [keyword, setKeyword] = useState("");
+function SearchBar({ setProducts, categoryId }) {
+    const [keyword, setKeyword] = useState("");
 
-  const handleSearch = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await axios.get(`${backendUrlApi}api/v1/products?keyword=${keyword}`);
-        setProducts(res.data.data); 
-        console.log(res.data.data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+      useEffect(() => {
+          setKeyword("");
+      }, [categoryId]);
 
-  return (
-      <form onSubmit={handleSearch} className="flex gap-2">
-          <input
-              type="text"
-              value={keyword}
-              onChange={(e) => setKeyword(e.target.value)}
-              placeholder="Search products..."
-              className="border border-bg-[var(--bg-Color)] p-2 rounded w-full text-[var(--bg-Color)] "
-          />
-          <button type="submit" className="bg-[var(--bg-btn)] hover:opacity-90 px-4 py-2 rounded">
-              Search
-          </button>
-      </form>
-  );
+    const handleSearch = async (e) => {
+        e.preventDefault();
+        try {
+            const res = await axios.get(`${backendUrlApi}api/v1/products?keyword=${keyword}${categoryId ? `&category=${categoryId}` : ""}`);
+            setProducts(res.data.data);
+            console.log(res.data.data);
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    return (
+        <form onSubmit={handleSearch} className="flex gap-2">
+            <input
+                type="text"
+                value={keyword}
+                onChange={(e) => setKeyword(e.target.value)}
+                placeholder="Search products..."
+                className="border border-bg-[var(--bg-Color)] p-2 rounded w-full text-[var(--bg-Color)] "
+            />
+            <button type="submit" className="bg-[var(--bg-btn)] hover:opacity-90 px-4 py-2 rounded">
+                Search
+            </button>
+        </form>
+    );
 }

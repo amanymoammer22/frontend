@@ -15,13 +15,18 @@ import Product from "../../pages/userPages/products/Product";
 import Wishlist from "../../pages/userPages/Wishlist";
 import ProductsByCategory from "../../pages/userPages/products/ProductsByCategory";
 import NotFound from '../../pages/NotFound';
+import ProtectedUserRoute from '../../components/Auth/ProtectedUserRoute';
 export default function UserRoutes() {
 
     const { isLoggedIn } = authStore();
     
   return (
       <Routes>
-          <Route path="/" element={<MainLayout />}>
+          <Route path="/" element={
+              <ProtectedUserRoute>
+                  <MainLayout/>
+              </ProtectedUserRoute>
+          }>
               <Route index element={<Home />} />
               <Route path="product" element={<Product />} />
               <Route path="/products/category/:categoryId" element={<ProductsByCategory />} />

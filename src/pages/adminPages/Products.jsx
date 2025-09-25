@@ -14,6 +14,7 @@ export default function Products() {
   const [editProduct, setEditProduct] = useState(null);
   const [showAddModal, setShowAddModal] = useState(false);
 
+
     const fetchProducts = async (currentPage = 1) => {
         try {
             setLoading(true);
@@ -78,12 +79,12 @@ export default function Products() {
               </div>
 
               {/* Table */}
-              <div className="overflow-hidden rounded-xl border border-gray-200 bg-white">
-                  <div className="grid grid-cols-6 gap-2 bg-gray-100 text-gray-600 text-sm font-medium px-3 py-2">
+              <div className="overflow-hidden overflow-x-auto rounded-xl border border-gray-200 bg-white">
+                  <div className="min-w-[600px] grid grid-cols-[50px_120px_80px_100px_100px_100px] sm:grid-cols-6 gap-2 bg-gray-100 text-gray-600 text-sm font-medium px-3 py-2">
                       <div className="col-span-1">ID</div>
                       <div className="col-span-2">Image</div>
                       <div className="col-span-1">Price</div>
-                      <div className="col-span-1">Created</div>
+                      <div className="col-span-1  ">Created</div>
                       <div className="col-span-1 text-center">Actions</div>
                   </div>
 
@@ -93,14 +94,12 @@ export default function Products() {
                       <div className="p-6 text-center text-gray-400">No products found</div>
                   ) : (
                       products.map((p, index) => (
-                          <div key={p._id} className="grid grid-cols-6 gap-2 px-3 py-2 border-t text-sm items-center">
+                          <div key={p._id} className="grid  grid-cols-[50px_120px_80px_100px_100px_100px] sm:grid-cols-6  gap-2 px-3 py-2 border-t min-h-[50px] text-sm items-center">
                               <div className="col-span-1"> {(page - 1) * 8 + (index + 1)}</div>
 
-                              <div className="col-span-2 flex items-center gap-3">
-                                  <img src={p.imageCover.startsWith("/uploads") ?
-                                      `${backendUrlApi}${p.imageCover}` :
-                                      `${backendUrlApi}/Product/${p.imageCover.replace("./Product/", "")}`}
-                                      
+                              <div className="col-span-2 flex items-center gap-3 truncate">
+                                  <img
+                                      src={p.imageCover.startsWith("./") ? `${backendUrlApi}${p.imageCover}` : `${backendUrlApi}/product/${p.imageCover}`}
                                       alt="product"
                                       className="w-14 h-14 rounded-lg object-cover border"
                                   />

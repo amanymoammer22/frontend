@@ -25,7 +25,7 @@ const handleUpdate = async () => {
         setProducts((prev) => prev.map((p) => (p._id === product._id ? res.data.data : p)));
 
         toast.success("✅ Product updated successfully!");
-        onClose(); 
+        onClose(); // أغلق المودال
     } catch (err) {
         console.error(err);
         toast.error("❌ Failed to update product!");
@@ -38,7 +38,7 @@ const handleUpdate = async () => {
         <div className="fixed inset-0 bg-black/20 flex items-center justify-center z-40" onClick={onClose}>
             <div
                 className="bg-white p-6 rounded-2xl shadow-lg w-[400px]"
-                onClick={(e) => e.stopPropagation()}
+                onClick={(e) => e.stopPropagation()} // منع الإغلاق عند الضغط داخل المودال
             >
                 <h2 className="text-xl font-bold mb-4">Edit Product</h2>
 

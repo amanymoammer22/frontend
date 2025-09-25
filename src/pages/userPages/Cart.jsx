@@ -86,7 +86,7 @@ export default function Cart() {
 
         const phoneNumber = "201040962751"; 
 
-        // جهز نص الرسالة
+       
         let message = "Hello! I want to place this order:\n\n";
         cart.cartItems.forEach((item) => {
             message += `- ${item.title} x${item.quantity} = $${item.quantity * item.price}\n`;
@@ -94,10 +94,8 @@ export default function Cart() {
         message += `\nTotal: $${cart.totalCartPrice}\n`;
         message += "Please deliver to my address.";
 
-        // إنشاء الرابط
         const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
-        // فتح الرابط
         window.open(url, "_blank");
     }
 
@@ -116,7 +114,7 @@ export default function Cart() {
         );
 
  return (
-     <div className="min-h-screen bg-[var(--bg-Color)] text-white">
+     <div className="min-h-screen bg-[var(--bg-Color)] text-white mt-20">
          <div className="max-w-6xl mx-auto px-4 md:px-6 py-10">
              <h1 className="text-center text-3xl md:text-4xl font-extrabold tracking-wide mb-8">Shopping Cart</h1>
 
@@ -128,9 +126,7 @@ export default function Cart() {
                              <div className="flex items-stretch gap-3 p-3">
                                  <div className="w-24 h-24 rounded-lg overflow-hidden bg-black/10 shrink-0">
                                      <img
-                                         src={i.imageCover.startsWith("/uploads") ?
-                                             `${backendUrlApi}${i.imageCover}` :
-                                             `${backendUrlApi}/Product/${i.imageCover.replace("./Product/", "")}`}
+                                         src={i.imageCover.startsWith("./") ? `${backendUrlApi}${i.imageCover}` : `${backendUrlApi}/product/${i.imageCover}`}
                                          alt={i.title}
                                          className="w-full h-full object-cover"
                                      />

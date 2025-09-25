@@ -54,7 +54,7 @@ function StatCard({ icon, value, label, color }) {
 
   return (
       <div className="p-10  md:p-6 bg-[var(--bg-footer)] min-h-screen">
-          <div className="rounded-xl bg-white/60 px-4 py-3 mb-5 flex justify-between items-center shadow-sm">
+          <div className="rounded-xl bg-white/60 px-4 py-3 mb-5 sm:flex sm:flex-row flex-col justify-between items-center shadow-sm">
               <h2 className="text-lg font-semibold text-black">Dashboard</h2>
               <span className="text-sm text-gray-500">welcome, Artisan!</span>
           </div>
@@ -92,8 +92,8 @@ function StatCard({ icon, value, label, color }) {
                   <span>Recent Orders</span>
               </div>
 
-              <div className="overflow-hidden rounded-lg border border-gray-200 bg-white">
-                  <div className="grid grid-cols-5 gap-2 bg-gray-100 text-gray-600 text-sm font-medium px-3 py-2">
+              <div className="overflow-hidden overflow-x-auto rounded-lg border border-gray-200 bg-white">
+                  <div className=" min-w-[900px] grid grid-cols-5 gap-2 bg-gray-100 text-gray-600 text-sm font-medium px-3 py-2">
                       <div>Order ID</div>
                       <div>Customer</div>
                       <div>Amount</div>

@@ -60,6 +60,7 @@ export default function ProductsByCategory() {
          fetchCategory();
      }, [page, categoryId]);
 
+    
      const handleApplyFilter = () => {
          setPage(1); 
          fetchProducts(1);
@@ -69,7 +70,7 @@ export default function ProductsByCategory() {
          setMin(0);
          setMax(300);
          setPage(1);
-         fetchProducts(1, 0, 300); 
+         fetchProducts(1, 0, 300); // مع categoryId مثبت
      };
      const handleAddToCart = async (p) => {
          try {
@@ -130,9 +131,7 @@ export default function ProductsByCategory() {
                                            <div className="relative w-full aspect-square overflow-hidden rounded-xl">
                                                {/* Image */}
                                                <img
-                                                   src={p.imageCover.startsWith("/uploads") ?
-                                                       `${backendUrlApi}${p.imageCover}` :
-                                                       `${backendUrlApi}/Product/${p.imageCover.replace("./Product/", "")}`}
+                                                   src={p.imageCover.startsWith("./") ? `${backendUrlApi}${p.imageCover}` : `${backendUrlApi}/product/${p.imageCover}`}
                                                    alt={p.title}
                                                    className="w-full h-full object-cover select-none"
                                                    draggable="false"
@@ -198,8 +197,10 @@ export default function ProductsByCategory() {
                            maxPrice={maxPrice}
                            setMin={setMin}
                            setMax={setMax}
-                           onApply={handleApplyFilter} 
-                           onClear={handleClearFilters} 
+                           onApply={handleApplyFilter}
+                           onClear={handleClearFilters}
+                           setProducts={setProducts}
+                           categoryId={categoryId}
                        />
                    </aside>
                </div>

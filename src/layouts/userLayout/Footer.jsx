@@ -68,7 +68,7 @@ export default function Footer() {
 
                 <hr className="border-gray-300 mb-6" />
 
-                <div className="w-2/3 mx-auto text-center bg-gray-200">
+                <div className="sm:w-2/3 w-full mx-auto text-center bg-gray-200">
                     <p className="text-sm text-black p-3">© {new Date().getFullYear()} Palestinian Embroidery. All rights reserved.</p>
                 </div>
             </footer>

@@ -12,13 +12,12 @@ export default function ResetPass() {
     const emailFromPrevPage = location.state?.email || "";
     const [codeVerified, setCodeVerified] = useState(false); 
 
-   
     const verifyCodeSchema = Yup.object({
         email: Yup.string().email("Invalid email address").required("Email is required"),
         code: Yup.string().length(6, "Code must be 6 digits").required("Reset code is required"),
     });
 
-    // ✅ Schema لإعادة تعيين الباسورد
+   
     const resetPasswordSchema = Yup.object({
         newPassword: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
         passwordConfirm: Yup.string()
@@ -26,7 +25,7 @@ export default function ResetPass() {
             .required("Password confirmation is required"),
     });
 
-    // ✅ أول فورم - تحقق من الكود
+  
     const formikVerify = useFormik({
         initialValues: { email: emailFromPrevPage, code: "" },
         validationSchema: verifyCodeSchema,
@@ -38,7 +37,7 @@ export default function ResetPass() {
                 });
                 console.log("✅ Code verified:", res.data);
                 toast.success("Code verified successfully!");
-                setCodeVerified(true); // ✅ نعرض الفورم الثاني
+                setCodeVerified(true); 
             } catch (err) {
                 toast.error(err.response?.data?.message || "Invalid code");
             } finally {
@@ -47,7 +46,6 @@ export default function ResetPass() {
         },
     });
 
-  
     const formikReset = useFormik({
         initialValues: { newPassword: "", passwordConfirm: "" },
         validationSchema: resetPasswordSchema,
@@ -76,7 +74,7 @@ export default function ResetPass() {
                 <h2 className="text-center text-2xl font-semibold text-gray-100 mt-1">{codeVerified ? "Set New Password" : "Verify Reset Code"}</h2>
 
                 {!codeVerified ? (
-                  
+                   
                     <FormikProvider value={formikVerify}>
                         <form onSubmit={formikVerify.handleSubmit} className="mt-8 space-y-5">
                             {/* Email */}
@@ -111,7 +109,7 @@ export default function ResetPass() {
                         </form>
                     </FormikProvider>
                 ) : (
-                    
+                
                     <FormikProvider value={formikReset}>
                         <form onSubmit={formikReset.handleSubmit} className="mt-8 space-y-5">
                             {/* Password */}

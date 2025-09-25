@@ -4,7 +4,6 @@ import * as Yup from "yup";
 import { authStore, backendUrlApi } from "../../store/authStore";
 import axios from "axios";
 import toast from "react-hot-toast";
-// import { useAuthStore } from "../../store/authStore";
 
 export default function Register() {
 

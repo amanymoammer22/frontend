@@ -48,14 +48,13 @@ export default function Login() {
   });
 
   return (
-      <main className="min-h-screen bg-[var(--bg-Color)] flex items-center justify-center p-6">
+      <main className="min-h-screen bg-[var(--bg-Color)] flex items-center justify-center p-6 mt-16 md:mt-2">
           <section className="w-full max-w-lg bg-[#66120e] rounded-lg shadow-2xl p-8 sm:p-10 border border-black/10">
               <div className="flex justify-center mb-6">
                   <img src="/logo.jpg" alt="Palestinian Embroidery" className="w-20 h-20 rounded-md ring-1 ring-white/20 object-cover mt-2" />
               </div>
 
               <h3 className="text-center text-sm tracking-wide text-gray-200">Palestinian Embroidery</h3>
-              {/* <h2 className="text-center text-2xl font-semibold text-gray-100 mt-1">Artisan Login</h2> */}
 
               <form onSubmit={formik.handleSubmit} className="mt-8 space-y-5">
                   <div>

@@ -50,7 +50,7 @@ export default function Wishlist() {
 
     if ( wishlistItems.length === 0) {
         return (
-            <div className="flex items-center justify-center h-screen flex-col gap-6 py-[20px]  mt-20">
+            <div className="flex items-center justify-center h-screen flex-col gap-6 py-[20px]  mt-24">
                 <FaRegHeart size={200} className="text-gray-300 " />
                 <h2 className="text-3xl font-bold">Your Wishlist is Empty</h2>
                 <p className="text-gray-500">Start adding products you love to your wishlist.</p>
@@ -62,9 +62,9 @@ export default function Wishlist() {
     }
 
     return (
-        <div className="max-w-6xl mx-auto p-6 bg-white mt-16">
+        <div className="max-w-6xl mx-auto p-6 bg-white mt-24">
             <div className="mb-4">
-                <Link to="/" className="flex items-center gap-2 text-gray-500 hover:text-pink-500">
+                <Link to="/" className="flex items-center gap-2 text-gray-500 hover:text-[var(--bg-Color)]">
                     <FaArrowLeft /> Back to Home
                 </Link>
                 <hr className="my-4 border-gray-200" />
@@ -80,12 +80,8 @@ export default function Wishlist() {
                 {wishlistItems.map((item) => (
                     <div key={item._id} className="grid grid-cols-6 gap-4 items-center py-6 border-b border-gray-300">
                         <div className="col-span-2 flex gap-4">
-                            <div className="w-24 h-32 bg-gray-100 rounded-lg overflow-hidden">
-                                <img
-                                    src={item.imageCover.startsWith("/uploads") ? `${backendUrlApi}${item.imageCover}` : `${backendUrlApi}/Product/${item.imageCover.replace("./Product/", "")}`}
-                                    alt={item.pro_name}
-                                    className="w-full h-full object-cover"
-                                />
+                            <div className="w-56 h-32 bg-gray-100 rounded-lg overflow-hidden">
+                                <img src={`${backendUrlApi}${item.imageCover}`} alt={item.pro_name} className="w-full h-full object-cover" />
                             </div>
                             <div>
                                 <h3 className="font-semibold">{item.title}</h3>
@@ -96,7 +92,9 @@ export default function Wishlist() {
                         <div className="text-center">${item.price}</div>
 
                         <div className="text-center">
-                            <button onClick={() => handleRemove(item._id)} className="p-2 text-red-500 hover:bg-red-100 rounded-lg">
+                            <button
+                                onClick={() => handleRemove(item._id)}
+                                className="p-2 text-red-500 hover:bg-red-100 rounded-lg">
                                 <FaTrashAlt size={18} />
                             </button>
                         </div>

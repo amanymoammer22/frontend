@@ -15,7 +15,7 @@ export default function AuthLink({ isLoggedIn, handleLogout }) {
                         style={{
                             backgroundColor: "var(--bg-footer)",
                             color: "var(--bg-Color)",
-                            fontSize: "1rem",
+                            fontSize: ".9rem",
                         }}
                     />
                 </>
@@ -31,7 +31,7 @@ export default function AuthLink({ isLoggedIn, handleLogout }) {
                         style={{
                             backgroundColor: "var(--bg-footer)",
                             color: "var(--bg-Color)",
-                            fontSize: "1rem", 
+                            fontSize: ".9rem", 
                         }}
                     />
                 </>

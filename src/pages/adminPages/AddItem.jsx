@@ -15,7 +15,7 @@ export default function AddItem() {
       setItems(res.data?.data || []);
     } catch (e) {
       console.error(e);
-      
+      // بيانات تجريبية لو API مش جاهزة
       setItems([
         {
           _id: "1",
@@ -73,67 +73,54 @@ export default function AddItem() {
   };
 
   return (
-    <div className="p-4 md:p-6 bg-[#f6e5cf] min-h-screen">
-      <div className="rounded-xl bg-white/60 px-4 py-3 mb-4 text-gray-700 shadow-sm">
-        <h2 className="text-lg font-semibold">Manage Items</h2>
-      </div>
-
-      <div className="rounded-2xl bg-white/70 shadow-sm p-3 md:p-4">
-        <div className="flex items-center gap-2 text-gray-700 font-semibold mb-3">
-          <span>📋</span>
-          <span>Items List</span>
-        </div>
-
-        <div className="overflow-hidden rounded-xl border border-gray-200 bg-white">
-          <div className="grid grid-cols-6 gap-2 bg-gray-100 text-gray-600 text-sm font-medium px-3 py-2">
-            <div>ID</div>
-            <div>Description</div>
-            <div>Price</div>
-            <div>Products</div>
-            <div>Created</div>
-            <div className="text-center">Actions</div>
+      <div className="p-4 md:p-6 bg-[#f6e5cf] min-h-screen">
+          <div className="rounded-xl bg-white/60 px-4 py-3 mb-4 text-gray-700 shadow-sm">
+              <h2 className="text-lg font-semibold">Manage Items</h2>
           </div>
 
-          {loading ? (
-            <div className="p-6 text-center text-gray-500">Loading…</div>
-          ) : items.length === 0 ? (
-            <div className="p-6 text-center text-gray-400">No items found</div>
-          ) : (
-            items.map((it, i) => (
-              <div
-                key={it._id}
-                className="grid grid-cols-6 gap-2 px-3 py-2 border-t text-sm items-center"
-              >
-                <div>#{i + 1}</div>
-                <div>{it.description}</div>
-                <div>{(it.price ?? 0).toFixed(2)}$</div>
-                <div>
-                  <span className="px-2 py-1 bg-sky-500 text-white text-xs rounded-full">
-                    {it.productsCount} Products
-                  </span>
-                </div>
-                <div>{fmtDate(it.createdAt || Date.now())}</div>
-                <div className="flex justify-center gap-2">
-                  <a
-                    href={`/admin/items/${it._id}`}
-                    className="p-2 rounded-md bg-blue-600/10 text-blue-600 hover:bg-blue-600/20"
-                    title="Edit"
-                  >
-                    ✏️
-                  </a>
-                  <button
-                    onClick={() => onDelete(it._id)}
-                    className="p-2 rounded-md bg-rose-600/10 text-rose-600 hover:bg-rose-600/20"
-                    title="Delete"
-                  >
-                    🗑️
-                  </button>
-                </div>
+          <div className="rounded-2xl bg-white/70 shadow-sm p-3 md:p-4">
+              <div className="flex items-center gap-2 text-gray-700 font-semibold mb-3">
+                  <span>📋</span>
+                  <span>Items List</span>
               </div>
-            ))
-          )}
-        </div>
+
+              <div className="overflow-hidden overflow-x-auto rounded-xl border border-gray-200 bg-white">
+                  <div className="grid sm:grid-cols-6  grid-cols-[50px_120px_80px_100px_100px_100px] gap-2 bg-gray-100 text-gray-600 text-sm font-medium px-3 py-2">
+                      <div>ID</div>
+                      <div>Description</div>
+                      <div>Price</div>
+                      <div>Products</div>
+                      <div>Created</div>
+                      <div className="text-center">Actions</div>
+                  </div>
+
+                  {loading ? (
+                      <div className="p-6 text-center text-gray-500">Loading…</div>
+                  ) : items.length === 0 ? (
+                      <div className="p-6 text-center text-gray-400">No items found</div>
+                  ) : (
+                      items.map((it, i) => (
+                          <div key={it._id} className="grid sm:grid-cols-6  grid-cols-[50px_120px_80px_100px_100px_100px] gap-2 px-3 py-2 border-t text-sm items-center">
+                              <div>#{i + 1}</div>
+                              <div>{it.description}</div>
+                              <div>{(it.price ?? 0).toFixed(2)}$</div>
+                              <div>
+                                  <span className="px-2 py-1 bg-sky-500 text-white text-xs rounded-full">{it.productsCount} Products</span>
+                              </div>
+                              <div>{fmtDate(it.createdAt || Date.now())}</div>
+                              <div className="flex justify-center gap-2">
+                                  <a href={`/admin/items/${it._id}`} className="p-2 rounded-md bg-blue-600/10 text-blue-600 hover:bg-blue-600/20" title="Edit">
+                                      ✏️
+                                  </a>
+                                  <button onClick={() => onDelete(it._id)} className="p-2 rounded-md bg-rose-600/10 text-rose-600 hover:bg-rose-600/20" title="Delete">
+                                      🗑️
+                                  </button>
+                              </div>
+                          </div>
+                      ))
+                  )}
+              </div>
+          </div>
       </div>
-    </div>
   );
 }

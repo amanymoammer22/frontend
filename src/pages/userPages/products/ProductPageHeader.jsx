@@ -1,5 +1,8 @@
+// import axios from "axios";
+// import { useEffect, useState } from "react";
 import { FaArrowDown, FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
+// import { backendUrlApi } from "../../store/authStore";
 
 export default function ProductPageHeader() {
   
@@ -13,7 +16,17 @@ export default function ProductPageHeader() {
                 backgroundImage: "url('bannimg.jpeg')",
             }}>
             <div className="flex flex-col gap-6 text-center lg:text-left">
-
+                {/* Back to Home */}
+                {/* <div>
+                    <Link
+                        to="/"
+                        className="px-5 flex items-center justify-center lg:justify-start gap-2 
+                                   text-gray-500 transition duration-300 
+                                   hover:text-[var(--MainColor)]">
+                        <FaArrowLeft size={20} />
+                        Back to Home
+                    </Link>
+                </div> */}
 
                 <div className="text-[#8b5050]">
                     <h2 className="text-3xl   lg:text-4xl  font-bold">Discover Authentic Palestinian Craft</h2>
@@ -24,6 +37,7 @@ export default function ProductPageHeader() {
                     </p>
                 </div>
             </div>
+
         </div>
     );
 }
