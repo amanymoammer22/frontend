@@ -60,7 +60,6 @@ export default function ProductsByCategory() {
          fetchCategory();
      }, [page, categoryId]);
 
-     // دوال تمرير للـDrawer تضمن إضافة categoryId دائمًا
      const handleApplyFilter = () => {
          setPage(1); 
          fetchProducts(1);
@@ -70,7 +69,7 @@ export default function ProductsByCategory() {
          setMin(0);
          setMax(300);
          setPage(1);
-         fetchProducts(1, 0, 300); // مع categoryId مثبت
+         fetchProducts(1, 0, 300); 
      };
      const handleAddToCart = async (p) => {
          try {

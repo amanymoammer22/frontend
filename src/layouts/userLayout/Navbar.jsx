@@ -10,8 +10,8 @@ export default function Navbar() {
     const navigate = useNavigate();
     const { isLoggedIn, logout } = authStore();
         const handleLogout = () => {
-            logout(); // يمسح التخزين + Zustand
-            setMenuOpen(false); // اغلاق المينيو لو مفتوح
+            logout(); 
+            setMenuOpen(false); 
             navigate("/login", { replace: true });
             console.log("logout success");
         };

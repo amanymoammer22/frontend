@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { backendUrlApi } from "../../store/authStore";
 export default function Orders() {
-// const backendUrlApi = import.meta.env.VITE_API || "http://localhost:5000/";
-
 const STATUS = ["pending", "processing", "shipped", "delivered", "cancelled"];
 
   const [loading, setLoading] = useState(true);
@@ -51,9 +49,8 @@ const STATUS = ["pending", "processing", "shipped", "delivered", "cancelled"];
 
   const nextStatus = (s) => {
     const i = STATUS.indexOf(s);
-    if (i < 0 || i >= STATUS.length - 2) return s; // لا تتخطى delivered/cancelled
+    if (i < 0 || i >= STATUS.length - 2) return s; 
     return STATUS[i + 1];
-    // pending -> processing -> shipped -> delivered
   };
 
   const updateStatus = async (id, current) => {

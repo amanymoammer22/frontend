@@ -1,6 +1,5 @@
 import { useFormik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
-// import { loginSchema } from "../../validation/loginSchema";
 import { backendUrlApi } from "../../store/authStore";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -31,7 +30,6 @@ export default function Forgotpass() {
 
    const formik = useFormik({
        initialValues: { email: "" },
-    //    validationSchema: loginSchema,
        onSubmit: handleSubmit,
    });
  

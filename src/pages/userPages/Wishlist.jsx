@@ -11,14 +11,13 @@ export default function Wishlist() {
     const [wishlistItems, setWishlistItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-  // Fetch wishlist on mount
   
    useEffect(() => {
     const getWishlist = async () => {
       try {
         const data = await fetchWishlist();
         console.log("Fetched wishlist:", data); 
-        setWishlistItems(data.data || []); // data.data 
+        setWishlistItems(data.data || []); 
       } catch (err) {
         console.error(err);
       } finally {

@@ -10,9 +10,6 @@ import { flushSync } from "react-dom";
 export default function Login() {
     const navigate = useNavigate();
     const login = authStore((state) => state.login);
-    
-    // const login = authStore((state) => state.login);
-    // login(user, token, values.remember);
 
      const handleSubmit = async (values, { setSubmitting }) => {
         const data = { email: values.email, password: values.password };

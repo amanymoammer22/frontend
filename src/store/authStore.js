@@ -6,8 +6,6 @@ const savedAuth = JSON.parse(localStorage.getItem(AUTH_KEY)) || JSON.parse(sessi
 // export const backendUrlApi = import.meta.env.VITE_BACKEND_URL;
 
 
-// const auth = JSON.parse(localStorage.getItem("auth")) || JSON.parse(sessionStorage.getItem("auth")) || null;
-
 
 export const authStore = create((set) => ({
     user: savedAuth?.user ?? null,

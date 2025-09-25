@@ -15,7 +15,7 @@ export default function AddItem() {
       setItems(res.data?.data || []);
     } catch (e) {
       console.error(e);
-      // بيانات تجريبية لو API مش جاهزة
+      
       setItems([
         {
           _id: "1",

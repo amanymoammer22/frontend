@@ -84,7 +84,7 @@ export default function Cart() {
     function handleWhatsappOrder() {
         if (!cart || !cart.cartItems) return;
 
-        const phoneNumber = "201040962751"; // ضع رقمك هنا مع كود الدولة
+        const phoneNumber = "201040962751"; 
 
         // جهز نص الرسالة
         let message = "Hello! I want to place this order:\n\n";

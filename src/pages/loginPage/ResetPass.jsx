@@ -10,9 +10,9 @@ export default function ResetPass() {
     const navigate = useNavigate();
     const location = useLocation();
     const emailFromPrevPage = location.state?.email || "";
-    const [codeVerified, setCodeVerified] = useState(false); // ✅ حالة تتحكم بإظهار الفورم الثاني
+    const [codeVerified, setCodeVerified] = useState(false); 
 
-    // ✅ Schema للتحقق من الكود
+   
     const verifyCodeSchema = Yup.object({
         email: Yup.string().email("Invalid email address").required("Email is required"),
         code: Yup.string().length(6, "Code must be 6 digits").required("Reset code is required"),
@@ -47,7 +47,7 @@ export default function ResetPass() {
         },
     });
 
-    // ✅ ثاني فورم - إعادة تعيين الباسورد
+  
     const formikReset = useFormik({
         initialValues: { newPassword: "", passwordConfirm: "" },
         validationSchema: resetPasswordSchema,
@@ -76,7 +76,7 @@ export default function ResetPass() {
                 <h2 className="text-center text-2xl font-semibold text-gray-100 mt-1">{codeVerified ? "Set New Password" : "Verify Reset Code"}</h2>
 
                 {!codeVerified ? (
-                    // ✅ فورم التحقق من الكود
+                  
                     <FormikProvider value={formikVerify}>
                         <form onSubmit={formikVerify.handleSubmit} className="mt-8 space-y-5">
                             {/* Email */}
@@ -111,7 +111,7 @@ export default function ResetPass() {
                         </form>
                     </FormikProvider>
                 ) : (
-                    // ✅ فورم تعيين الباسورد
+                    
                     <FormikProvider value={formikReset}>
                         <form onSubmit={formikReset.handleSubmit} className="mt-8 space-y-5">
                             {/* Password */}
