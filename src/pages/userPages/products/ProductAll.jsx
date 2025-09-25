@@ -108,8 +108,11 @@ export default function ProductAll() {
                                            <div className="relative w-full aspect-square overflow-hidden rounded-xl">
                                                {/* Image */}
                                                <img
-                                                   src={p.imageCover ? `${backendUrlApi}/product/${p.imageCover}` : `${backendUrlApi}/uploads/product/${p.imageCover}`}
-                                                   //    src={p.imageCover.startsWith("./") ? `${backendUrlApi}${p.imageCover}` : `${backendUrlApi}/product/${p.imageCover}`}
+                                                   src={
+                                                       p.imageCover.startsWith("./")
+                                                           ? `${backendUrlApi}${p.imageCover.replace("./", "/")}` // الصور من JSON
+                                                           : `${backendUrlApi}${p.imageCover}` // الصور المرفوعة
+                                                   }
                                                    alt={p.title}
                                                    className="w-full h-full object-cover select-none"
                                                    draggable="false"
