@@ -131,7 +131,7 @@ export default function ProductsByCategory() {
                                            <div className="relative w-full aspect-square overflow-hidden rounded-xl">
                                                {/* Image */}
                                                <img
-                                                   src={`${backendUrlApimg}${p.imageCover}`}
+                                                   src={`${backendUrlApi.replace(/\/$/, "")}${p.imageCover}`}
                                                    alt={p.title}
                                                    className="w-full h-full object-cover select-none"
                                                    draggable="false"
