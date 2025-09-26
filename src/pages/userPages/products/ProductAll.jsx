@@ -4,7 +4,7 @@ import ProductPagination from "./ProductPagination";
 import FilterDrawer from "./FilterDrawer";
 import ProductDetail from "./ProductDetail";
 import {  FaCartPlus, FaEye, FaHeart, FaTimes } from "react-icons/fa";
-import { authStore, backendUrlApi, backendUrlApimg } from "../../../store/authStore";
+import { authStore, backendUrlApi } from "../../../store/authStore";
 import { Link } from "react-router-dom";
 import { Player } from "@lottiefiles/react-lottie-player";
 import toast from "react-hot-toast";
