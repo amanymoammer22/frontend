@@ -108,7 +108,7 @@ export default function ProductAll() {
                                            <div className="relative w-full aspect-square overflow-hidden rounded-xl">
                                                {/* Image */}
                                                <img
-                                                   src={`${backendUrlApimg}${p.imageCover}`}
+                                                   src="https://backend-production-fab0.up.railway.app/uploads/Product/p23.jpg"
                                                    alt={p.title}
                                                    className="w-full h-full object-cover select-none"
                                                    draggable="false"

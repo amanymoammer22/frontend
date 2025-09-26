@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { authStore, backendUrlApi, backendUrlApimg } from "../../../store/authStore";
+import { authStore, backendUrlApi } from "../../../store/authStore";
 import toast from "react-hot-toast";
 import { addToCart } from "../../../store/cartStore";
 import { addToWishlist } from "../../../store/wishlistStore";
