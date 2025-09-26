@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { backendUrlApi } from "../../store/authStore";
+import { backendUrlApi, backendUrlApimg } from "../../store/authStore";
 import { FaEdit, FaShoppingBag, FaTrashAlt } from "react-icons/fa";
 import toast from "react-hot-toast";
 import ProductItem from "./ProductItem";
@@ -98,11 +98,7 @@ export default function Products() {
                               <div className="col-span-1"> {(page - 1) * 8 + (index + 1)}</div>
 
                               <div className="col-span-2 flex items-center gap-3 truncate">
-                                  <img
-                                     src={`${backendUrlApi}${p.imageCover}`}
-                                      alt="product"
-                                      className="w-14 h-14 rounded-lg object-cover border"
-                                  />
+                                  <img src={`${backendUrlApimg}${p.imageCover}`} alt="product" className="w-14 h-14 rounded-lg object-cover border" />
                                   <div className="truncate text-gray-700">{p.title || "—"}</div>
                               </div>
 

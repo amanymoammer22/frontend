@@ -1,5 +1,5 @@
 import {  useState } from "react";
-import { backendUrlApi } from "../../../store/authStore";
+import { backendUrlApimg } from "../../../store/authStore";
 import toast from "react-hot-toast";
 import { addToCart } from "../../../store/cartStore";
 
@@ -30,11 +30,7 @@ export default function ProductDetail({ product }) {
             {/* Image */}
             <div className="flex flex-col items-center">
                 <div className="overflow-hidden rounded-2xl shadow-md">
-                    <img
-                        src={`${backendUrlApi}/${product.image}`}
-                        alt="Product"
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    />
+                    <img src={`${backendUrlApimg}${product.image}`} alt="Product" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
                 </div>
 
                 {/* Info under image */}

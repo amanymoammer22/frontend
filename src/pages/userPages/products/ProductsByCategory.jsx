@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { authStore, backendUrlApi } from "../../../store/authStore";
+import { authStore, backendUrlApi, backendUrlApimg } from "../../../store/authStore";
 import toast from "react-hot-toast";
 import { addToCart } from "../../../store/cartStore";
 import { addToWishlist } from "../../../store/wishlistStore";
@@ -131,7 +131,7 @@ export default function ProductsByCategory() {
                                            <div className="relative w-full aspect-square overflow-hidden rounded-xl">
                                                {/* Image */}
                                                <img
-                                                   src={`${backendUrlApi}${p.imageCover}`}
+                                                   src={`${backendUrlApimg}${p.imageCover}`}
                                                    alt={p.title}
                                                    className="w-full h-full object-cover select-none"
                                                    draggable="false"

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaPlus, FaMinus, FaTrashAlt, FaWhatsapp } from "react-icons/fa";
 import { emptyToCart, fetchCart, removeToCart, updateItemToCart } from "../../store/cartStore";
-import { authStore, backendUrlApi } from "../../store/authStore";
+import { authStore, backendUrlApimg } from "../../store/authStore";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { Player } from "@lottiefiles/react-lottie-player";
@@ -125,11 +125,7 @@ export default function Cart() {
                          <div key={i._id} className="bg-[#65120c]/70 rounded-xl border border-white/10 overflow-hidden">
                              <div className="flex items-stretch gap-3 p-3">
                                  <div className="w-24 h-24 rounded-lg overflow-hidden bg-black/10 shrink-0">
-                                     <img
-                                         src={`${backendUrlApi}/${i.image}`}
-                                         alt={i.title}
-                                         className="w-full h-full object-cover"
-                                     />
+                                     <img src={`${backendUrlApimg}${i.image}`} alt={i.title} className="w-full h-full object-cover" />
                                  </div>
 
                                  <div className="flex-1 flex justify-between">

@@ -4,7 +4,7 @@ import ProductPagination from "./ProductPagination";
 import FilterDrawer from "./FilterDrawer";
 import ProductDetail from "./ProductDetail";
 import {  FaCartPlus, FaEye, FaHeart, FaTimes } from "react-icons/fa";
-import { authStore, backendUrlApi } from "../../../store/authStore";
+import { authStore, backendUrlApi, backendUrlApimg } from "../../../store/authStore";
 import { Link } from "react-router-dom";
 import { Player } from "@lottiefiles/react-lottie-player";
 import toast from "react-hot-toast";
@@ -108,7 +108,7 @@ export default function ProductAll() {
                                            <div className="relative w-full aspect-square overflow-hidden rounded-xl">
                                                {/* Image */}
                                                <img
-                                                   src={`${backendUrlApi}${p.imageCover}`}
+                                                   src={`${backendUrlApimg}${p.imageCover}`}
                                                    alt={p.title}
                                                    className="w-full h-full object-cover select-none"
                                                    draggable="false"

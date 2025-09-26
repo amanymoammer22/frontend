@@ -4,7 +4,7 @@ import { FaArrowLeft, FaTrashAlt, FaTicketAlt, FaHeart, FaRegHeart } from "react
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { fetchWishlist, removeToWishlist } from "../../store/wishlistStore";
-import { backendUrlApi } from "../../store/authStore";
+import {  backendUrlApimg } from "../../store/authStore";
 import { Player } from "@lottiefiles/react-lottie-player";
 export default function Wishlist() {
 
@@ -81,11 +81,7 @@ export default function Wishlist() {
                     <div key={item._id} className="grid grid-cols-6 gap-4 items-center py-6 border-b border-gray-300">
                         <div className="col-span-2 flex gap-4">
                             <div className="w-56 h-32 bg-gray-100 rounded-lg overflow-hidden">
-                                <img
-                                    src={`${backendUrlApi}/${item.image}`}
-                                    alt="Product"
-                                    className="w-full h-full object-cover"
-                                />
+                                <img src={`${backendUrlApimg}${item.image}`} alt="Product" className="w-full h-full object-cover" />
                             </div>
                             <div>
                                 <h3 className="font-semibold">{item.title}</h3>
