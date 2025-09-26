@@ -31,7 +31,7 @@ export default function ProductDetail({ product }) {
             <div className="flex flex-col items-center">
                 <div className="overflow-hidden rounded-2xl shadow-md">
                     <img
-                        src={product.imageCover.startsWith("/uploads") ? `${backendUrlApi}${product.imageCover}` : `${backendUrlApi}/Product/${product.imageCover.replace("./Product/", "")}`}
+                        src={`${backendUrlApi}/${product.image}`}
                         alt="Product"
                         className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                     />

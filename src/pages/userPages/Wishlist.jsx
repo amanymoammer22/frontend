@@ -82,7 +82,8 @@ export default function Wishlist() {
                         <div className="col-span-2 flex gap-4">
                             <div className="w-56 h-32 bg-gray-100 rounded-lg overflow-hidden">
                                 <img
-                                    src={item.imageCover.startsWith("/uploads") ? `${backendUrlApi}${item.imageCover}` : `${backendUrlApi}/Product/${item.imageCover.replace("./Product/", "")}`}
+                                    src={`${backendUrlApi}/${item.image}`}
+                                    alt="Product"
                                     className="w-full h-full object-cover"
                                 />
                             </div>

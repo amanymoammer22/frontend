@@ -10,7 +10,7 @@ export default function Forgotpass() {
    const handleSubmit = async (values, { setSubmitting }) => {
        const data = { email: values.email };
        try {
-         const res = await axios.post(`${backendUrlApi}api/v1/auth/forgotPassword`, data);
+         const res = await axios.post(`${backendUrlApi}api/v1/auth/forgotPassword`, data); 
          console.log(res.data);
          toast.success("Reset code sent to your email!", { duration: 1200, position: "top-center" });
          localStorage.setItem("resetEmail", values.email);
